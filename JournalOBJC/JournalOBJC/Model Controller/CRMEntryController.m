@@ -7,18 +7,39 @@
 //
 
 #import "CRMEntryController.h"
-#import "CRMEntryController.h"
+
 
 @implementation CRMEntryController
 
-+ (CRMEntryController *) shared
++ (CRMEntryController *)shared
 {
-    static CRMEntryController *shared = nil;
+
+static CRMEntryController *shared = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        shared = [[CRMEntryController alloc]init];
+        shared = [CRMEntryController new];
     });
     return shared;
+}
+//CRUD Functions
+
+//ADD
+- (void)addEntry:(CRMEntry *)entry
+{
+    [self.entries addObject:entry];
+}
+
+//Delete
+- (void)removeEntry:(CRMEntry *)entry
+{
+    [self.entries removeObject:entry];
+}
+
+//Update
+- (void)modifyEntry:(CRMEntry *)entry withTitle:(NSString *)title body:(NSString *)body
+{
+    title = [entry title];
+    body = [entry bodyText];
 }
 
 

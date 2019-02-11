@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CRMEntryController : NSObject
     //Source of truth
 @property (nonatomic, readonly) NSMutableArray *entries;
+
++ (CRMEntryController *)shared;
+
 - (void)addEntry: (CRMEntry *)entry;
 - (void)removeEntry: (CRMEntry *)entry;
 - (void)modifyEntry: (CRMEntry *)entry

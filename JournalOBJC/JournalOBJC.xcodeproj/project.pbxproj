@@ -14,6 +14,8 @@
 		B42D6437221216B600346AF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B42D6436221216B600346AF7 /* main.m */; };
 		B42D64412212183500346AF7 /* CRMEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = B42D64402212183500346AF7 /* CRMEntry.m */; };
 		B42D64452212197E00346AF7 /* CRMEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = B42D64442212197E00346AF7 /* CRMEntryController.m */; };
+		B42D6456221228A900346AF7 /* CRMEntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B42D6455221228A900346AF7 /* CRMEntryListTableViewController.m */; };
+		B42D6459221228C400346AF7 /* CRMEntryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B42D6458221228C400346AF7 /* CRMEntryDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		B42D64402212183500346AF7 /* CRMEntry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRMEntry.m; sourceTree = "<group>"; };
 		B42D64432212197E00346AF7 /* CRMEntryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMEntryController.h; sourceTree = "<group>"; };
 		B42D64442212197E00346AF7 /* CRMEntryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRMEntryController.m; sourceTree = "<group>"; };
+		B42D6454221228A900346AF7 /* CRMEntryListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMEntryListTableViewController.h; sourceTree = "<group>"; };
+		B42D6455221228A900346AF7 /* CRMEntryListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRMEntryListTableViewController.m; sourceTree = "<group>"; };
+		B42D6457221228C400346AF7 /* CRMEntryDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMEntryDetailViewController.h; sourceTree = "<group>"; };
+		B42D6458221228C400346AF7 /* CRMEntryDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRMEntryDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 				B42D64422212183C00346AF7 /* Model */,
 				B42D64462212199300346AF7 /* Model Controller */,
 				B42D643E221217F500346AF7 /* Storyboard */,
+				B42D644A2212267900346AF7 /* View Controllers */,
 			);
 			path = JournalOBJC;
 			sourceTree = "<group>";
@@ -106,6 +113,17 @@
 				B42D64442212197E00346AF7 /* CRMEntryController.m */,
 			);
 			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		B42D644A2212267900346AF7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B42D6454221228A900346AF7 /* CRMEntryListTableViewController.h */,
+				B42D6455221228A900346AF7 /* CRMEntryListTableViewController.m */,
+				B42D6457221228C400346AF7 /* CRMEntryDetailViewController.h */,
+				B42D6458221228C400346AF7 /* CRMEntryDetailViewController.m */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,7 +199,9 @@
 				B42D6437221216B600346AF7 /* main.m in Sources */,
 				B42D6429221216B500346AF7 /* AppDelegate.m in Sources */,
 				B42D64412212183500346AF7 /* CRMEntry.m in Sources */,
+				B42D6456221228A900346AF7 /* CRMEntryListTableViewController.m in Sources */,
 				B42D64452212197E00346AF7 /* CRMEntryController.m in Sources */,
+				B42D6459221228C400346AF7 /* CRMEntryDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
