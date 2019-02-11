@@ -9,6 +9,7 @@
 #import "CRMEntryListTableViewController.h"
 #import "CRMEntryDetailViewController.h"
 #import "CRMEntryController.h"
+#import "CRMEntry.h"
 
 @interface CRMEntryListTableViewController ()
 
@@ -21,11 +22,16 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self tableView] reloadData];
+}
+
 #pragma mark - Table view data source
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     return [[[CRMEntryController shared] entries] count];
     
 }
@@ -43,10 +49,8 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        CRMEntry *entry = [[CRMEntryController shared] entries][indexPath.row];
+        [[CRMEntryController shared] removeEntry:entry];
     }
 }
 
@@ -56,8 +60,21 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    //IIDOO
+    
+    //Identifier
+    if ([segue.identifier isEqualToString:@"toDetailVC"]) {
+        //IndexPath
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //Detail
+        CRMEntryDetailViewController *destinationVC = [segue destinationViewController];
+        //Get Object
+        CRMEntry *entry = [[CRMEntryController shared] entries][indexPath.row];
+        //Send Object
+        entry = [destinationVC entry];
+        
+    }
+    
 }
 
 @end

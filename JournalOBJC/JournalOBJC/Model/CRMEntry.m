@@ -11,14 +11,13 @@
 @implementation CRMEntry
 
 -(instancetype)initWithTitle:(NSString *)title
-                    bodyText:(NSString *)bodyText
-                   timestamp:(NSDate *)timestamp;
+                    bodyText:(NSString *)bodyText;
 {
     self = [super init];
     if (self) {
         _title = title;
         _bodyText = bodyText;
-        _timestamp = timestamp;
+        _timestamp = [[NSDate alloc] init];
     }
     return self;
 }

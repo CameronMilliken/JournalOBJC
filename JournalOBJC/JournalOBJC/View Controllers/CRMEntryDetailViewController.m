@@ -7,8 +7,14 @@
 //
 
 #import "CRMEntryDetailViewController.h"
+#import "CRMEntryController.h"
+
 
 @interface CRMEntryDetailViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+
+@property (weak, nonatomic) IBOutlet UITextView *bodyTextView;
+
 
 @end
 
@@ -16,17 +22,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self updateViews];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)updateViews
+{
+    self.titleTextField.text = self.entry.title;
+    self.bodyTextView.text = self.entry.bodyText;
 }
-*/
+
+- (IBAction)saveButtonTapped:(id)sender {
+    if (self.entry) {
+        // update the current entry
+        [[CRMEntryController shared] modifyEntry:self.entry withTitle:self.titleTextField.text body:self.bodyTextView.text];
+    } else {
+        // add a new entry
+        CRMEntry *entry = [[CRMEntry alloc] initWithTitle:self.titleTextField.text bodyText:self.bodyTextView.text];
+        [[CRMEntryController shared] addEntry: entry];
+    }
+    [[self navigationController] popViewControllerAnimated:true];
+    
+}
+
+- (IBAction)clearButtonTapped:(id)sender {
+    self.titleTextField.text = @"";
+    self.bodyTextView.text = @"";
+}
+
+
 
 @end

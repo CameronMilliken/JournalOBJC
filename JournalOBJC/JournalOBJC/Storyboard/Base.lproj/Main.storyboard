@@ -13,7 +13,7 @@
         <!--Entries-->
         <scene sceneID="VFq-IO-eQG">
             <objects>
-                <tableViewController id="flO-rw-ipi" customClass="EntryListTableViewController" sceneMemberID="viewController">
+                <tableViewController id="flO-rw-ipi" customClass="CRMEntryListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xCD-ZS-Gb8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,7 +52,13 @@
                             <outlet property="delegate" destination="flO-rw-ipi" id="XF8-K3-5ku"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Entries" id="Nop-n1-94i"/>
+                    <navigationItem key="navigationItem" title="Entries" id="Nop-n1-94i">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bhc-G7-ccW">
+                            <connections>
+                                <segue destination="EnR-Us-9su" kind="show" id="qiN-mX-d99"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLF-Ud-ojA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,12 +67,12 @@
         <!--Title-->
         <scene sceneID="7AU-Sy-joT">
             <objects>
-                <viewController id="EnR-Us-9su" customClass="EntryDetailViewController" sceneMemberID="viewController">
+                <viewController id="EnR-Us-9su" customClass="CRMEntryDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ug4-sj-Z3z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AjM-L8-ciw">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Title Here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AjM-L8-ciw">
                                 <rect key="frame" x="16" y="98" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -89,6 +95,9 @@
                                 <state key="normal" title="Clear">
                                     <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="EnR-Us-9su" eventType="touchUpInside" id="5TW-Oj-D83"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,8 +115,16 @@
                         <viewLayoutGuide key="safeArea" id="elK-Ka-b6d"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="cjq-8T-Uli">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="S4Z-rf-9Ee"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="S4Z-rf-9Ee">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="EnR-Us-9su" id="lse-sK-1CZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bodyTextView" destination="4Do-eh-6Y0" id="P07-qe-nGU"/>
+                        <outlet property="titleTextField" destination="AjM-L8-ciw" id="q42-tT-hsY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTX-st-0ZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,4 +147,7 @@
             <point key="canvasLocation" x="-4" y="73"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qiN-mX-d99"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -17,8 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDate *timestamp;
 
 -(instancetype)initWithTitle:(NSString *)title
-                    bodyText:(NSString *)bodyText
-                   timestamp:(NSDate *)timestamp;
+                    bodyText:(NSString *)bodyText;
+
+//- (instancetype) initWithDictionary: (NSDictionary *)dictionary;
+
+//- (NSDictionary *)dictionaryCopy;
+
 
 
 @end

@@ -13,11 +13,11 @@
 
 + (CRMEntryController *)shared
 {
-
+//Need to allocate
 static CRMEntryController *shared = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        shared = [CRMEntryController new];
+        shared = [[CRMEntryController alloc] init];
     });
     return shared;
 }
